@@ -1,0 +1,9 @@
+---
+ipsec_exporter::install_dir: '/opt'
+ipsec_exporter::service_enable: true
+ipsec_exporter::service_ensure: 'running'
+ipsec_exporter::service_flags: {}
+ipsec_exporter::service_manage: true
+ipsec_exporter::service_name: 'ipsec_exporter'
+ipsec_exporter::tmp_dir: '/tmp'
+ipsec_exporter::version: '0.3.1'

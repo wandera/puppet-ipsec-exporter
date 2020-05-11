@@ -1,0 +1,19 @@
+<%- |
+  Stdlib::AbsolutePath $install_dir,
+  Hash[String, String] $flags = {},
+| -%>
+[Unit]
+Description=Prometheus IPSec Exporter
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=<%= $install_dir %>/ipsec_exporter <% $flags.each |$k,$v| {%><%= " --${k}=${v}" %><% } %>
+
+SyslogIdentifier=prometheus_ipsec_exporter
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
